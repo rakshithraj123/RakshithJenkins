@@ -32,5 +32,13 @@ pipeline {
             archiveArtifacts '**/*.apk'
          }
        }
+	   
+	    stage('Static analysis') {
+          steps {
+           // Run Lint and analyse the results
+           bat './gradlew lintDebug'
+           androidLint pattern: '**/lint-results-*.xml'
+         }
+       }
     }
 }
