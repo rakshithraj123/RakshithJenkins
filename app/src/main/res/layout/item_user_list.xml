@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UserListFragment.UserListRecyclerViewAdapter">
+
+    <data>
+        <variable
+            name="user"
+            type="com.devteam.jetpackusers.io.model.User" />
+
+        <variable
+            name="callback"
+            type="com.devteam.jetpackusers.ui.userlist.UserListClickListener" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/userlist_item_margin"
+        android:onClick="@{(v) -> callback.onUserClicked(v,user.id)}">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="@{user.firstName+` `+user.lastName}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="@dimen/user_avatar_sizein_list"
+            android:layout_height="@dimen/user_avatar_sizein_list"
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="@dimen/text_margin"
+            android:adjustViewBounds="true"
+            app:loadImage="@{user.avatar}" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/user_avatar"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginTop="5sp"
+            android:layout_toRightOf="@+id/user_avatar"
+            android:text="@{user.email}"
+            android:textAppearance="?attr/textAppearanceListItemSecondary" />
+    </RelativeLayout>
+</layout>

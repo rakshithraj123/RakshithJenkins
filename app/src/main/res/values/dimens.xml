@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_margin">10sp</dimen>
+    <dimen name="user_empty_text_size">20sp</dimen>
+    <dimen name="userlist_item_margin">10sp</dimen>
+    <dimen name="user_avatar_sizein_list">100sp</dimen>
+</resources>
