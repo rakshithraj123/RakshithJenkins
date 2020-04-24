@@ -32,7 +32,7 @@ pipeline {
       post {
               success {
                 // Notify if the upload succeeded
-                mail to: 'nkdiyasys@gmail.com', subject: 'New build available!', body: 'Check it out!'
+                mail to: 'rakshithraj11@gmail.com', subject: 'New build available!', body: 'Check it out!'
               }
             }
       }
@@ -40,7 +40,7 @@ pipeline {
   post {
     failure {
       // Notify developer team of the failure
-      mail to: 'nkdiyasys@gmail.com', subject: 'Oops!', body: "Build ${env.BUILD_NUMBER} failed; ${env.BUILD_URL}"
+      mail to: 'rakshithraj11@gmail.com', subject: 'Oops!', body: "Build ${env.BUILD_NUMBER} failed; ${env.BUILD_URL}"
     }
   }
 }
