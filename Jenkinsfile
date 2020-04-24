@@ -4,13 +4,7 @@ pipeline {
    
   stages {
   
-                 stage('build') {
-             steps {
-                try { checkout scm } catch(caughtError) { deleteDir(); checkout scm }
-            }
-			   
-         }
-		 
+          
 		 
          stage('Compile') {
             steps {
