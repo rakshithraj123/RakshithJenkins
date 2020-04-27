@@ -14,11 +14,11 @@ pipeline {
          }
 		 
 		 post {
-        success {
+           success {
           // Notify if the upload succeeded
-          mail to: 'rakshithraj11@gmail.com', subject: 'New build available!', body: 'Check it out!'
-        }
-      }
+           mail to: 'rakshithraj11@gmail.com', subject: 'New build available!', body: 'Check it out!'
+           }
+         }
        }
 
          
