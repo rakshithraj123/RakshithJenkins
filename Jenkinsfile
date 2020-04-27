@@ -34,19 +34,19 @@ pipeline {
               archiveArtifacts '**/*.apk'
             }
 		 
-		  post {
-           success {
+		  //post {
+          // success {
              // Notify if the upload succeeded
              // mail to: 'rakshithraj11@gmail.com', subject: 'New build available!', body: 'Check it out!'
-            }
-          }
+            //}
+          //}
         }         
     }
 	
-	post {
-      failure {
+	//post {
+     // failure {
          // Notify developer team of the failure
          //mail to: 'nkdiyasys@gmail.com', subject: 'Oops!', body: "Build ${env.BUILD_NUMBER} failed; ${env.BUILD_URL}"
-      }
-    }
+     // }
+    //}
 }
