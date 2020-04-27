@@ -16,8 +16,8 @@ pipeline {
 		stage('UI test') {
            steps {
              // Compile and run the unit tests for the app and its dependencies
-             bash  '''
-			    #!/bin/bash
+             bash  '''#!/bin/bash
+			    
 
                 #Start the emulator
                 $ANDROID_SDK/tools/emulator -avd android_emulator_pie -wipe-data &
@@ -43,9 +43,7 @@ pipeline {
 
                 # Stop the background processes
                 kill $LOGCAT_PID
-                kill $EMULATOR_PID
-			   
-			   
+                kill $EMULATOR_PID					   
 			 '''
             }
         }
