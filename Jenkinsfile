@@ -16,7 +16,7 @@ pipeline {
 		stage('UI test') {
            steps {
              // Compile and run the unit tests for the app and its dependencies
-             bat '''
+             bash  '''
 			    #!/bin/bash
 
                 #Start the emulator
