@@ -17,7 +17,7 @@ pipeline {
              bat './gradlew testDebugUnitTest testDebugUnitTest'
 
               // Analyse the test results and update the build result as appropriate
-              junit '**/TEST-*.html'
+              junit '**/TEST-*.xml'
             }
         }
   
