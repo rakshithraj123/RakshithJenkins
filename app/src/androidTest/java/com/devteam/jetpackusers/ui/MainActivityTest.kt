@@ -5,11 +5,14 @@ import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.devteam.jetpackusers.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -20,6 +23,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.util.concurrent.TimeoutException
 
 
 @LargeTest
@@ -49,10 +53,11 @@ class MainActivityTest {
                         )
                     ),
                     0
-                ),
-                isDisplayed()
+                )
             )
         )
+
+        waitUntilVisible(1000,relativeLayout)
 
         // click the item at oth position
         relativeLayout.perform(click())
@@ -96,5 +101,25 @@ class MainActivityTest {
                         && view == parent.getChildAt(position)
             }
         }
+    }
+
+
+    @Throws(TimeoutException::class)
+    fun waitUntilVisible(timeout: Long, viewInteraction: ViewInteraction) {
+        val startTime = System.currentTimeMillis()
+        val endTime = startTime + timeout
+        do {
+            try {
+                viewInteraction.check(matches(isDisplayed()))
+                return
+            } catch (e: NoMatchingViewException) {
+                try {
+                    Thread.sleep(100)
+                } catch (ex: InterruptedException) {
+                    ex.printStackTrace()
+                }
+            }
+        } while (System.currentTimeMillis() < endTime)
+        throw TimeoutException()
     }
 }
