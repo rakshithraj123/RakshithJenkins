@@ -11,6 +11,8 @@ until $WAIT_CMD | grep -m 1 stopped; do
   sleep 1
 done
 
+sleep 30
+
 # Unlock the Lock Screen
 D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb shell input keyevent 82
 
