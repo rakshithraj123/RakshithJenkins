@@ -11,7 +11,7 @@ pipeline {
                  parallel (
                     launchEmulator: {
                            bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/emulator/emulator -avd pixel_api_29'
-                    }
+                    },
                     runAndroidTests: {
                          timeout(time: 65, unit: 'SECONDS') {
                                   sh "$ADB wait-for-device"
