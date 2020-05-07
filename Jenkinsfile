@@ -15,7 +15,7 @@ node { {
                              bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/emulator/emulator -avd pixel_api_29 -wipe-data'
                            },
                            runAndroidTests: {
-                               timeout(time: 20, unit: 'SECONDS') {
+                               timeout(time: 40, unit: 'SECONDS') {
                                  sh "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device"
                                }
                                try {
