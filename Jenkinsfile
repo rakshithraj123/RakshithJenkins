@@ -17,11 +17,8 @@ pipeline {
            steps {
              script {
              // Compile and run the unit tests for the app and its dependencies
-                bat '''#!/bin/bash
-			    
-
                 #Start the emulator
-                $ANDROID_SDK/tools/emulator -avd android_emulator_pie -wipe-data &
+                $ANDROID_SDK/tools/emulator -avd Pixel_API_29 -wipe-data &
                 EMULATOR_PID=$!
 
                 # Wait for Android to finish booting
@@ -45,7 +42,7 @@ pipeline {
                 # Stop the background processes
                 kill $LOGCAT_PID
                 kill $EMULATOR_PID					   
-			 '''
+
                }
               }
         }
