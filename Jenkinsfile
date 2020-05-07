@@ -1,4 +1,4 @@
-node { 
+pipeline {
   agent any
 
  //def ANDROID_HOME='D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk'
@@ -8,27 +8,15 @@ node {
         
 		stage('UI test') {
            steps {
+                   script {
+                     if (currentBuild.result == null
+                         || currentBuild.result == 'SUCCESS') {
+                     // Start your emulator, testing tools
+                     bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/emulator/emulator -avd pixel_api_29 -no-audio'
 
-                         def error
-                         parallel (
-                           launchEmulator: {
-                             bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/emulator/emulator -avd pixel_api_29 -wipe-data'
-                           },
-                           runAndroidTests: {
-                               timeout(time: 40, unit: 'SECONDS') {
-                                 sh "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device"
-                               }
-                               try {
-                                    bat './gradlew connectedAndroidTest -i'
-                               } catch(e) {
-                                   error = e
-                               }
-                               bat script: '/var/lib/jenkins/kill-emu.sh'
-                           }
-                         )
-                         if (error != null) {
-                             throw error
-                         }
+                     bat './gradlew connectedAndroidTest -i'
+                     }
+                   }
                  }
         }
 		
