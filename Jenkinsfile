@@ -9,7 +9,7 @@ pipeline {
 		stage('UI test') {
            steps {
            script{
-                  bat '''
+                  C:/Users/rakshith.r/AppData/Local/Programs/Git/bin/bash '''
                   #!/bin/bash
 
                   #Start the emulator
