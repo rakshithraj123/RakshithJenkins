@@ -1,7 +1,7 @@
 pipeline {
   agent any
 
-  def ANDROID_HOME='D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk'
+ //def ANDROID_HOME='D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk'
   stages {
   
         stage('Compile') {
@@ -19,7 +19,7 @@ pipeline {
                      if (currentBuild.result == null
                          || currentBuild.result == 'SUCCESS') {
                      // Start your emulator, testing tools
-                     bat '$ANDROID_SDK/tools/emulator pixel_api_29'
+                     bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/tools/emulator pixel_api_29'
 
                      bat './gradlew connectedAndroidTest -i'
                      }
