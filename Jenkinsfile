@@ -19,7 +19,7 @@ pipeline {
                      if (currentBuild.result == null
                          || currentBuild.result == 'SUCCESS') {
                      // Start your emulator, testing tools
-                     bat '$ANDROID_SDK/tools/emulator pixel_api_29
+                     bat '$ANDROID_SDK/tools/emulator pixel_api_29'
 
                      bat './gradlew connectedAndroidTest -i'
                      }
