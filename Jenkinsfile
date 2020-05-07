@@ -1,7 +1,7 @@
 pipeline {
   agent any
 
-
+  def ANDROID_HOME='D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk'
   stages {
   
         stage('Compile') {
