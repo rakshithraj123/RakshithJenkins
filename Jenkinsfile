@@ -22,11 +22,11 @@ pipeline {
                            '''
                            bat './gradlew connectedAndroidTest -i'
                      }
-
+                     )
                     }
-                 )
+
                }
-        }
+
 		
 
 
