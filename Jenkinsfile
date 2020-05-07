@@ -15,7 +15,7 @@ pipeline {
                     runAndroidTests: {
                         // timeout(time: 70, unit: 'SECONDS') {
                         //bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device"
-                        bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/ adb wait-for-device shell 'while [[ -z \$(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'"
+                        bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device shell 'while [[ -z \$(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'"
 
                         // }
                           bat './gradlew connectedAndroidTest -i'
