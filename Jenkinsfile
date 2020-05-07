@@ -15,8 +15,9 @@ pipeline {
         
 		stage('UI test') {
            steps {
+             script {
              // Compile and run the unit tests for the app and its dependencies
-             bat  '''#!/bin/bash
+                bat '''#!/bin/bash
 			    
 
                 #Start the emulator
@@ -45,7 +46,8 @@ pipeline {
                 kill $LOGCAT_PID
                 kill $EMULATOR_PID					   
 			 '''
-            }
+               }
+              }
         }
 		
    
