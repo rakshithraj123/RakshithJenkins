@@ -15,9 +15,18 @@ pipeline {
                     runAndroidTests: {
                         // timeout(time: 70, unit: 'SECONDS') {
                         //bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device"
-                        bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device shell 'while [[ -z \$(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'"
+                        //bat "D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device shell 'while [[ -z \$(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'"
 
                         // }
+                        sh script: '
+                        WAIT_CMD="D:/android_tool/adt-bundle-windows-x86_64-20140702/platform-tools/adb wait-for-device shell getprop init.svc.bootanim"
+                        until $WAIT_CMD | grep -m 1 stopped; do
+                          echo "Waiting..."
+                          sleep 1
+                         done
+                         '
+
+
                           bat './gradlew connectedAndroidTest -i'
                           bat script: '/var/lib/jenkins/kill-emu.sh'
                     }
