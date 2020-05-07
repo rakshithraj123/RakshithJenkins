@@ -14,7 +14,6 @@ pipeline {
                     },
                     runAndroidTests: {
                         script {
-                            D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device
                             WAIT_CMD="D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device shell getprop init.svc.bootanim"
                             until $WAIT_CMD | grep -m 1 stopped; do
                               echo "Waiting..."
