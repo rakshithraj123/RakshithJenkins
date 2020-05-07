@@ -13,13 +13,13 @@ pipeline {
                            bat 'D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/emulator/emulator -avd pixel_api_29'
                     },
                     runAndroidTests: {
-                        script {
+                       bash '''#!/bin/bash
                             WAIT_CMD="D:/android_tool/adt-bundle-windows-x86_64-20140702/sdk/platform-tools/adb wait-for-device shell getprop init.svc.bootanim"
                             until $WAIT_CMD | grep -m 1 stopped; do
                               echo "Waiting..."
                               sleep 1
                             done
-                           }
+                           '''
                            bat './gradlew connectedAndroidTest -i'
                      }
 
