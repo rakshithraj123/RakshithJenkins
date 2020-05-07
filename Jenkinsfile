@@ -9,7 +9,7 @@ pipeline {
 		stage('UI test') {
            steps {
 
-                  C:/Users/rakshith.r/AppData/Local/Programs/Git/bin/bash '''
+                  C:\Users\rakshith.r\AppData\Local\Programs\Git\bin\bash  '''
                   #!/bin/bash
 
                   #Start the emulator
@@ -39,7 +39,7 @@ pipeline {
                   kill $EMULATOR_PID
 
                   '''
-                  
+
                }
         }
 
