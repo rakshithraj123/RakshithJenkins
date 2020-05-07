@@ -8,7 +8,7 @@ pipeline {
         
 		stage('UI test') {
            steps {
-                  bat './androidtests.sh'
+                  bat 'androidtests.sh'
                }
         }
 
