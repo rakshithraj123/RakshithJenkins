@@ -9,7 +9,7 @@ pipeline {
 		stage('UI test') {
            steps {
 
-                  bat "C:\Users\rakshith.r\AppData\Local\Programs\Git\bin\bash  androidtests.sh"
+                  bat "C:/Users/rakshith.r/AppData/Local/Programs/Git/bin/bash  androidtests.sh"
 
                }
         }
