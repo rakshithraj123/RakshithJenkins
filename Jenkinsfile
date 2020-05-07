@@ -8,7 +8,8 @@ pipeline {
         
 		stage('UI test') {
            steps {
-                  bat  script: '''
+           script{
+                  bash '''
                   #!/bin/bash
 
                   #Start the emulator
@@ -38,6 +39,7 @@ pipeline {
                   kill $EMULATOR_PID
 
                   '''
+                  }
                }
         }
 
